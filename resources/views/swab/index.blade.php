@@ -75,7 +75,7 @@
                                                                 <td>{{$item->nama_dokter}}</td>
                                                                 <td><form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('swab.destroy', $item->id) }}" method="POST">
                                                                         <a href="{{ route('swab.edit', $item->id) }}" class="btn btn-sm btn-primary">Tambah Hasil</a>
-                                                                        <a href="{{ route('cetakpasien', $item->id) }}" class="btn btn-sm btn-primary">Print</a>
+                                                                        <a href="{{ route('cetakpasien', $item->id) }}" target="_blank" class="btn btn-sm btn-primary">Print</a>
                                                                         @csrf
                                                                         @method('DELETE')
                                                                         <button type="submit" class="btn btn-sm btn-danger">Hapus</button>

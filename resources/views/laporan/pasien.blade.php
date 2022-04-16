@@ -116,7 +116,7 @@
                                                                 <td>{{$item->created_at}}</td>
                                                                 <td><form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('pasien.destroy', $item->id) }}" method="POST">
                                                                         {{-- <a href="{{ route('pasien.edit', $item->id) }}" class="btn btn-sm btn-primary">Detai</a> --}}
-                                                                        <a href="{{ route('cetakpasien', $item->id) }}" class="btn btn-sm btn-primary">Print</a>
+                                                                        <a href="{{ route('cetakpasien', $item->id) }}" target="_blank" class="btn btn-sm btn-primary">Print</a>
                                                                         @csrf
                                                                         @method('DELETE')
                                                                         {{-- <button type="submit" class="btn btn-sm btn-danger">Hapus</button> --}}

@@ -20,6 +20,10 @@ class Pasien extends Model
     {
         return $this->HasMany(Keluhan::class,'id_pasien');
     }
+    public function getAntrian()
+    {
+        return $this->HasMany(Antrian::class,'id_pasien');
+    }
     public function getTindakan()
     {
         return $this->HasMany(Tindakan::class,'id_pasien');

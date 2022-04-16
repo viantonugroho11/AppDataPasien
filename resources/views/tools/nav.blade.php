@@ -59,6 +59,13 @@
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
+                                 <li class="">
+                                    <a href="{{route('antrian.index')}}" class="waves-effect waves-dark">
+                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                        <span class="pcoded-mtext">Input Antrian</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
                                 <li class="">
                                     <a href="{{route('swab.index')}}" class="waves-effect waves-dark">
                                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>

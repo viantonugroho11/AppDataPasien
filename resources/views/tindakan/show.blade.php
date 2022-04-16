@@ -66,7 +66,7 @@
                                                                     </a>
                                                                 </span>
                                                                 <span class="col-md-3">
-                                                                    <a href="{{ route('cetaktindakan', $pasien->id) }}" type="Submit" class="btn-sm btn-block btn-primary btn-flat">
+                                                                    <a href="{{ route('cetaktindakan', $pasien->id) }}" type="Submit" target="_blank" class="btn-sm btn-block btn-primary btn-flat">
                                                                         <i class="fas fa-save"></i> Print Tindakan
                                                                     </a>
                                                                 </span>

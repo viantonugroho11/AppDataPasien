@@ -14,7 +14,11 @@
                                                 <a href="index.html"> <i class="fa fa-home"></i> </a>
                                             </li>
                                             <li class="breadcrumb-item"><a href="#!">Detail Pasien</a>
-                                            <li class="breadcrumb-item"><a href="#!">{{$pasien->id}}</a>
+                                            @if ($pasien==null)
+                                                    <li class="breadcrumb-item"><a href="#!">0</a>
+                                                  @else  
+                                                  <li class="breadcrumb-item"><a href="#!">{{$pasien->id}}</a>
+                                            @endif
                                             </li>
                                         </ul>
                                     </div>
@@ -30,11 +34,18 @@
                                                         <!--<span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span>-->
                                                     </div>
                                                     <div class="card-block">
-                                                        Nama : {{$pasien->nama}} <br>
+                                                    @if ($pasien==null)
+                                                        Nama : Data Tidak Ditemukan<br>
+                                                        Jenis : <br>
+                                                        Tanggal Lahir : <br>
+                                                        Alamat : <br>
+                                                    @else  
+                                                        Nama Pasien : {{$pasien->nama}} <br>
                                                         No KK : {{$pasien->nokk}} <br>
                                                         Umur : {{$pasien->umur}} <br>
-                                                        No HP : {{$pasien->nohp}} <br>
                                                         Alamat : {{$pasien->alamat}}<br>
+                                                        No Hp : {{$pasien->nohp}}<br>
+                                                    @endif
                                                     </div>
                                                 </div>
                                             </div>
@@ -43,25 +54,32 @@
                                             <div class="col-md-12">
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        <h5>Riwayat Penyakit/Keluhan</h5>
+                                                        <h5>Riwayat Antrian</h5>
                                                         <div class="col-md-12">
                                                             <div class="row">
+                                                                @if ($pasien==null)
+                                                                    
+                                                                @else  
                                                                 <span class="col-md-3">
-                                                                    <a href="{{ route('cek.show', $pasien->id) }}" type="Submit" class="btn-sm btn-block btn-primary btn-flat">
-                                                                        <i class="fas fa-save"></i> Tambah Keluhan
+                                                                    <a href="{{ route('antrian.show', $pasien->id) }}" type="Submit" class="btn-sm btn-block btn-primary btn-flat">
+                                                                        <i class="fas fa-save"></i> Tambah Antrian
                                                                     </a>
                                                                 </span>
                                                                 <span class="col-md-3">
-                                                                    <a href="{{ route('cetakkeluhan', $pasien->id) }}" type="Submit" target="_blank" class="btn-sm btn-block btn-primary btn-flat">
-                                                                        <i class="fas fa-save"></i> Print Keluhan
+                                                                    <a href="{{ route('cetakantrian', $pasien->id) }}" type="Submit" target="_blank" class="btn-sm btn-block btn-primary btn-flat">
+                                                                        <i class="fas fa-save"></i> Print Antrian
                                                                     </a>
                                                                 </span>
+                                                                @endif
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="card-block">
                                                         <div class="row">
-                                                        @foreach ($pasien->getKeluhan->sortDesc() as $item)
+                                                        @if ($pasien==null)
+                                                            <h3>Data Tidak Ditemukan</h3>
+                                                        @else  
+                                                        @foreach ($pasien->getAntrian->sortDesc() as $item)
                                                         <div class="col-md-4">
                                                             <div class="card">
                                                                 <div class="card-header">
@@ -69,12 +87,14 @@
                                                                     <!--<span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span>-->
                                                                 </div>
                                                                 <div class="card-block">
-                                                                    Keluhan:
-                                                                    {{$item->detail}}
+                                                                    Nomor Antrian:
+                                                                    {{$item->antrian}}
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         @endforeach
+                                                        @endif
+                                                        
                                                         </div>
                                                     </div>
                                                 </div>

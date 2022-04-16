@@ -30,11 +30,14 @@ Route::Post('/laporan/tanggal', [App\Http\Controllers\LaporanController::class,'
 Route::Post('/laporan/bulan', [App\Http\Controllers\LaporanController::class,'caribulan'])->name('laporan.bulan');
 Route::Post('/laporan/tahun', [App\Http\Controllers\LaporanController::class,'caritahun'])->name('laporan.tahun');
 Route::resource('/tindakan', App\Http\Controllers\TindakanController::class);
+Route::resource('/antrian', App\Http\Controllers\AntrianController::class);
 Route::resource('/swab', App\Http\Controllers\SwabController::class);
 Route::Get('/swabcari/', [App\Http\Controllers\PasienController::class,'cari'])->name('swab.cari');
 
 Route::get('/tindakan/cetak/{id}', [App\Http\Controllers\TindakanController::class,'print'])->name('cetaktindakan');
 Route::get('/caritindakan/', [App\Http\Controllers\TindakanController::class,'cari'])->name('tindakancari');
+Route::get('/antrian/cetak/{id}', [App\Http\Controllers\AntrianController::class,'print'])->name('cetakantrian');
+Route::get('/cariantrian/', [App\Http\Controllers\AntrianController::class,'cari'])->name('antriancari');
 // });
 // Auth::routes();
 route::get('/',function(){
